@@ -1,0 +1,17 @@
+import numpy as np
+
+expenses = np.array([
+    [1000, 1200, 1100, 1300, 1250, 1400],
+    [1500, 1600, 1580, 1620, 1630, 1700],
+    [800, 850, 820, 900, 910, 950],
+    [2000, 2100, 2050, 2200, 2150, 2250]
+])
+
+variance = np.var(expenses, axis=1)
+covariance_matrix = np.cov(expenses)
+
+print("Variance of Expenses for Each Department:")
+print(variance)
+
+print("\nCovariance Matrix of Expenses:")
+print(covariance_matrix)
