@@ -1,0 +1,14 @@
+import pandas as pd
+from collections import Counter
+import re
+
+data = {'Review_Text': ["This product is great, I love it!", "Great quality, will buy again.", 
+                        "Not worth the money, very disappointed.", "Love it, great value for the price.", 
+                        "Terrible, broke after one use."]}
+
+df = pd.DataFrame(data)
+
+words = ' '.join(df['Review_Text'].str.lower().str.replace(r'[^\w\s]', '')).split()
+word_counts = Counter(words)
+
+print(word_counts)
