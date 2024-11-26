@@ -1,0 +1,25 @@
+import pandas as pd
+data = {
+    'OrderID': [1, 2, 3, 4, 5],
+    'CustomerID': ['C001', 'C002', 'C003', 'C001', 'C002'],
+    'ProductID': ['P001', 'P002', 'P003', 'P001', 'P003'],
+    'Quantity': [2, 1, 4, 3, 2],
+    'TotalPrice': [40, 20, 80, 60, 40]
+}
+df = pd.DataFrame(data)
+print(df)
+
+total_sales = df['TotalPrice'].sum()
+print("Total Sales:", total_sales)
+
+top_customers = df.groupby('CustomerID')['TotalPrice'].sum().sort_values(ascending=False).head(5)
+print("Top Customers:\n", top_customers)
+
+popular_products = df.groupby('ProductID')['Quantity'].sum().sort_values(ascending=False).head(5)
+print("Most Popular Products:\n", popular_products)
+
+avg_order_value = df['TotalPrice'].mean()
+print("Average Order Value:", avg_order_value)
+
+orders_per_customer = df['CustomerID'].value_counts()
+print("Orders per Customer:\n", orders_per_customer.head(5))
