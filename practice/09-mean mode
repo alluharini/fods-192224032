@@ -1,0 +1,11 @@
+import pandas as pd
+purchase_amounts = [20, 30, 20, 50, 40, 30, 70, 20, 60, 40, 30, 50, 30]
+
+purchase_series = pd.Series(purchase_amounts)
+
+mean_purchase = purchase_series.mean()
+mode_purchase = purchase_series.mode()
+
+
+print(f"Mean (Average) Purchase Amount: ${mean_purchase:.2f}")
+print(f"Mode of Purchase Amount:",mode_purchase)
