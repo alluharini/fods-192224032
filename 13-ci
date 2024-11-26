@@ -1,0 +1,27 @@
+import pandas as pd
+import numpy as np
+from scipy import stats
+
+data = {
+    'Customer_ID': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    'Rating': [4, 5, 3, 4, 4, 5, 3, 4, 4, 5]
+}
+
+df = pd.DataFrame(data)
+mean_rating = df['Rating'].mean()
+
+std_dev = df['Rating'].std()
+n = len(df['Rating'])
+
+std_error = std_dev / np.sqrt(n)
+
+confidence_level = 0.95
+z_score = stats.norm.ppf(1 - (1 - confidence_level) / 2)
+margin_of_error = z_score * std_error
+
+confidence_interval = (mean_rating - margin_of_error, mean_rating + margin_of_error)
+
+print("Mean Rating:", mean_rating)
+print("Standard Deviation:", std_dev)
+print("Standard Error:", std_error)
+print(f"Confidence Interval for the True Mean Rating at {confidence_level*100}% confidence: {confidence_interval}")
