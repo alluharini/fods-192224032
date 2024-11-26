@@ -1,0 +1,23 @@
+import numpy as np
+
+temperature_data = np.array([
+    [72, 75, 78, 73, 71, 76, 79, 80, 77, 85, 90, 92, 88, 93, 70, 68, 77, 75, 79, 80],
+    [60, 62, 61, 63, 64, 65, 62, 61, 63, 64, 60, 59, 61, 62, 63, 64, 60, 61, 62, 63],
+    [85, 87, 90, 88, 86, 89, 87, 90, 91, 92, 88, 86, 89, 90, 91, 92, 88, 89, 87, 86],
+    [45, 48, 47, 46, 44, 49, 50, 48, 47, 46, 45, 44, 47, 48, 46, 45, 44, 49, 48, 47],
+])
+
+mean_temperatures = np.mean(temperature_data, axis=1)
+std_devs = np.std(temperature_data, axis=1)
+#differences between highest and lowest
+temp_ranges = np.ptp(temperature_data, axis=1)
+
+city_highest_range = np.argmax(temp_ranges)
+city_most_consistent = np.argmin(std_devs)
+
+print("Mean Temperatures of Cities:", mean_temperatures)
+print("Standard Deviations of Temperatures:", std_devs)
+print("Temperature Ranges of Cities:", temp_ranges)
+
+print("\nCity with the Highest Temperature Range:", city_highest_range + 1)
+print("City with the Most Consistent Temperature:", city_most_consistent + 1)
