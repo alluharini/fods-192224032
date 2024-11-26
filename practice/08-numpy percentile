@@ -1,0 +1,10 @@
+import numpy as np
+response_times = np.array([120, 180, 200, 150, 175, 160, 190, 210, 250, 300, 320, 350, 400])
+
+percentile_25 = np.percentile(response_times, 25)
+percentile_50 = np.percentile(response_times, 50)
+percentile_75 = np.percentile(response_times, 75)
+
+print(f"25th Percentile (Q1): {percentile_25} ms")
+print(f"50th Percentile (Median): {percentile_50} ms")
+print(f"75th Percentile (Q3): {percentile_75} ms")
